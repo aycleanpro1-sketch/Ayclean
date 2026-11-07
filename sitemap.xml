@@ -2,20 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.ayclean.be/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.ayclean.be/mentions-legales/</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <loc>https://www.ayclean.be/nettoyage-airbnb-liege/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ayclean.be/confidentialite/</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <loc>https://www.ayclean.be/nettoyage-airbnb-verviers/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ayclean.be/nettoyage-airbnb-spa/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ayclean.be/nettoyage-airbnb-theux/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ayclean.be/nettoyage-airbnb-aywaille/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ayclean.be/nettoyage-airbnb-esneux/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ayclean.be/nettoyage-airbnb-huy/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
