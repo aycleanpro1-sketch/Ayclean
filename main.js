@@ -110,7 +110,7 @@
   var showMsg = function (id) {
     var el = document.getElementById(id);
     el.classList.add('show');
-    setTimeout(function () { el.classList.remove('show'); }, 8000);
+    setTimeout(function () { el.classList.remove('show'); }, id === 'form-success' ? 30000 : 8000);
   };
 
   var WEB3FORMS_KEY = '5477a320-dfa7-4234-a858-c0877fa7be68';
