@@ -2,7 +2,6 @@
   'use strict';
 
   var WA_NUMBER = '32465380418';
-  var EMAIL = 'contact@ayclean.be';
 
   // En-tête : ombre au défilement
   var header = document.querySelector('.header');
@@ -108,28 +107,60 @@
     return lines.join('\n');
   };
 
-  var done = function () {
-    var ok = document.getElementById('form-success');
-    ok.classList.add('show');
-    setTimeout(function () { ok.classList.remove('show'); }, 8000);
+  var showMsg = function (id) {
+    var el = document.getElementById(id);
+    el.classList.add('show');
+    setTimeout(function () { el.classList.remove('show'); }, 8000);
   };
+
+  var WEB3FORMS_KEY = '5477a320-dfa7-4234-a858-c0877fa7be68';
+  var sendBtn = document.getElementById('send-btn');
+  var sendLabel = sendBtn ? sendBtn.querySelector('span') : null;
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!validate()) return;
-    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(buildMessage()), '_blank', 'noopener');
-    done();
+    if (document.getElementById('botcheck').checked) return;
+    var oldLabel = sendLabel.textContent;
+    sendBtn.disabled = true;
+    sendLabel.textContent = 'Envoi en cours…';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: 'Demande de devis – ' + val('type-logement') + ' à ' + val('localisation'),
+        from_name: "Site ayclean.be",
+        name: val('prenom') + ' ' + val('nom'),
+        email: val('email'),
+        telephone: val('telephone'),
+        type_de_logement: val('type-logement'),
+        commune: val('localisation'),
+        chambres: val('chambres'),
+        frequence: val('frequence'),
+        message: val('message') || '(aucune précision)',
+        botcheck: ''
+      })
+    }).then(function (r) { return r.json(); }).then(function (data) {
+      if (!data.success) throw new Error(data.message || 'erreur');
+      form.reset();
+      showMsg('form-success');
+      try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'devis-envoye', title: 'Devis envoyé', event: true }); } catch (err) {}
+    }).catch(function () {
+      showMsg('form-error');
+    }).then(function () {
+      sendBtn.disabled = false;
+      sendLabel.textContent = oldLabel;
+    });
   });
 
-  var mailLink = document.getElementById('send-mail');
-  if (mailLink) {
-    mailLink.addEventListener('click', function (e) {
+  var waLink = document.getElementById('send-wa');
+  if (waLink) {
+    waLink.addEventListener('click', function (e) {
       e.preventDefault();
       if (!validate()) return;
-      window.location.href = 'mailto:' + EMAIL +
-        '?subject=' + encodeURIComponent('Demande de devis – ' + val('type-logement') + ' à ' + val('localisation')) +
-        '&body=' + encodeURIComponent(buildMessage());
-      done();
+      window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(buildMessage()), '_blank', 'noopener');
+      showMsg('form-success');
     });
   }
 })();

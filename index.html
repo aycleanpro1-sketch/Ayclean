@@ -530,9 +530,11 @@
           <select class="input" id="frequence" name="frequence"><option>Entre chaque voyageur</option><option>Hebdomadaire</option><option>Ponctuel / remise en état</option></select></div>
       </div>
       <div class="field"><label for="message">Précisions</label><textarea class="input" id="message" name="message" rows="4" placeholder="Linge fourni ou non, remise des clés, dates de la première intervention…"></textarea></div>
-      <button type="submit" class="btn btn-primary"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Envoyer ma demande sur WhatsApp</button>
-      <p class="form-hint">Pas WhatsApp ? <a href="#" id="send-mail" style="color:var(--cyan-deep);font-weight:700">Envoyer par email</a>. Vos données servent uniquement à répondre à votre demande (<a href="/confidentialite/" style="color:inherit">confidentialité</a>).</p>
-      <div class="form-success" id="form-success" role="status"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Merci ! Votre message est prêt : il ne reste qu'à l'envoyer.</span></div>
+      <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+      <button type="submit" class="btn btn-primary" id="send-btn"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span>Envoyer ma demande</span></button>
+      <p class="form-hint">Vous préférez WhatsApp ? <a href="#" id="send-wa" style="color:var(--cyan-deep);font-weight:700">Envoyer sur WhatsApp</a>. Vos données servent uniquement à répondre à votre demande (<a href="/confidentialite/" style="color:inherit">confidentialité</a>).</p>
+      <div class="form-success" id="form-success" role="status"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Merci ! Votre demande est bien envoyée, nous vous répondons rapidement.</span></div>
+      <div class="form-success" id="form-error" role="alert" style="background:#fdecea;color:#8a1f17;border-color:#f3c0bb"><span>L'envoi n'a pas fonctionné. Réessayez, ou appelez-nous au 0465 38 04 18.</span></div>
     </form>
   </div>
 </section>
