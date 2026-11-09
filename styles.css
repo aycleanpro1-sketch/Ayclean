@@ -342,3 +342,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 .footer-areas{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;line-height:1.9}
 .footer-areas strong{color:var(--ink-2);margin-right:6px}
 .footer-areas a{color:var(--ink-2)}
+
+.brand img{display:block;height:40px;width:auto}
+.footer .brand img{height:62px}
+@media (max-width:560px){.brand img{height:28px}}
